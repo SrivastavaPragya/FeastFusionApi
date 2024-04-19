@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document, Model } from 'mongoose';
+import { OrderDoc } from './Order';
 
 
 
@@ -16,7 +17,7 @@ interface CustomerDoc extends Document {
     lat: number;
     lng: number;
     // cart: [any],
-    // orders: [OrderDoc]
+    orders: [OrderDoc]
 }
 
 
@@ -39,10 +40,10 @@ const CustomerSchema = new Schema({
     //         unit: { type: Number, require: true}
     //     }
     // ],
-    // orders: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'order'
-    // }]
+    orders: [{
+        type: Schema.Types.ObjectId,
+        ref: 'order'
+    }]
 
 },{
     toJSON: {
